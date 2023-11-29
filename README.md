@@ -14,7 +14,7 @@ npm
 ## Installation
 
 Clone the repository:
-git clone 
+git clone https://github.com/gfaizank/fizz-events.git
 Install dependencies:
 npm install
 
