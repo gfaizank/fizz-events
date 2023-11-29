@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Fizz Events Frontend Application
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is created with React.js, Tailwind css and react hooks.
 
 ## Available Scripts
 
