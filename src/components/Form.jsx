@@ -13,7 +13,7 @@ import {
   faPencilAlt, 
   faToggleOn,
    faToggleOff,
-  faSort
+  faSort, faChevronDown, faSmileBeam
 } from '@fortawesome/free-solid-svg-icons';
 
 const EventForm = () => {
@@ -56,11 +56,21 @@ const EventForm = () => {
     setIsApproved(!isApproved);
   };
 
+  const handleImageUpload = (e) => {
+    // Handle the image upload logic here
+    const selectedFile = e.target.files[0];
+    console.log('Selected File:', selectedFile);
+  };
+
   return (
     <div className="flex">
       {/* FIRST HALF */}
       <div className="w-1/2 p-6">
-        <h2 className="text-lg font-bold mb-4">Personal Calendar</h2>
+      <h2 className="text-lg font-bold mb-4 flex items-center">
+      <FontAwesomeIcon icon={faSmileBeam} className="text-gray-500 mr-2" />
+        Personal Calendar
+        <FontAwesomeIcon icon={faChevronDown} className="text-gray-500 ml-2" />
+      </h2>
         <form onSubmit={handleSubmit} className="mb-8">
           {/* Event Name */}
           <label className="mb-4">
@@ -200,15 +210,25 @@ const EventForm = () => {
       {/* SECOND HALF */}
       <div className="w-1/2 p-6">
         {/* Image Tile */}
-        <div className="mb-4">
-          {/* Replace the URL with your image source */}
-          <img
-            src="https://via.placeholder.com/200"
-            alt="Event Image"
-            className="w-full h-80 object-cover mb-2 rounded"
-          />
-          <div>Upload Image</div>
-        </div>
+        <div className="mb-4 relative">
+      {/* Replace the URL with your image source */}
+      <img
+        src="https://via.placeholder.com/200"
+        alt="Event Image"
+        className="w-full h-80 object-cover mb-2 rounded"
+      />
+      {/* Image Upload Icon */}
+      <label htmlFor="imageInput" className="absolute bottom-0 right-0 cursor-pointer p-2">
+        <FontAwesomeIcon icon={faImage} className="text-gray-500 text-xl font-bold hover:text-gray-700" />
+        <input
+          type="file"
+          id="imageInput"
+          accept="image/*"
+          className="hidden"
+          onChange={handleImageUpload}
+        />
+      </label>
+    </div>
 
         {/* Theme */}
         <h5 className="mb-2">Theme</h5>
