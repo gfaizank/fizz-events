@@ -20,6 +20,7 @@ const App = () => {
 
       {/* Event Listing */}
       <Listing events={events} />
+      
     </div>
   );
 };
