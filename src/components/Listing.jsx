@@ -9,6 +9,10 @@ const Listing = ({ events }) => {
     setSelectedTab(tab);
   };
 
+  const formattedDate = new Date(events.startDate);
+  const options = { weekday: 'short', month: 'short', day: 'numeric' };
+  const displayDate = formattedDate.toLocaleDateString('en-US', options);
+
   return (
     <div className="bg-gray-200 p-4 mb-10">
       <div className="flex items-center justify-between mb-4">
@@ -32,26 +36,26 @@ const Listing = ({ events }) => {
       {events.map((event, index) => (
         <div key={index} className="flex items-center mb-4">
           <div className="float-left">
-            <p className="text-gray-500 mr-3">{event.date}</p>
+            <p className="text-gray-500 mr-3">{event.startDate}</p>
           </div>
           <FontAwesomeIcon icon={faMapPin} className="text-gray-500 text-3xl mr-2" />
           <div className="bg-white p-4 ml-4 rounded flex-grow">
             <div className="bg-white p-4 rounded mb-4">
-              <p className="text-sm text-gray-500 mb-2"><FontAwesomeIcon icon={faClock} className="mr-1" /> {event.time}</p>
-              <h3 className="text-2xl font-bold mb-2">{event.title}</h3>
-              <img src={event.image} alt="Event" className="w-20 h-30 float-right" />
+              <p className="text-sm text-gray-500 mb-2"><FontAwesomeIcon icon={faClock} className="mr-1" /> {event.startTime}</p>
+              <h3 className="text-2xl font-bold mb-2">{event.eventName}</h3>
+              <img src={event.image? `${event.image}` : `https://via.placeholder.com/50`} alt="Event" className="w-20 h-30 float-right" />
               <div className="flex items-center mb-2">
                 <FontAwesomeIcon icon={faUser} className="text-sm text-gray-500 mr-1" />
-                <p className="text-sm text-gray-500 mr-3">By {event.host}</p>
+                <p className="text-sm text-gray-500 mr-3">By FK</p>
               </div>
               <div className="flex items-center mb-2">
                 <FontAwesomeIcon icon={faVideo} className="text-sm text-gray-500 mr-1" />
-                <p className="text-sm text-gray-500 mr-3">{event.type}</p>
+                <p className="text-sm text-gray-500 mr-3">{event.location}</p>
               </div>
-              <button className="bg-blue-500 text-white px-2 py-1 rounded mb-2">{event.status}</button>
+              <button className="bg-blue-500 text-white px-2 py-1 rounded mb-2">Invited</button>
               <div className="flex items-center">
                 <FontAwesomeIcon icon={faUserFriends} className="text-sm text-gray-500 mr-1" />
-                <p className="text-sm text-gray-500">{event.attendees}+ Attendees</p>
+                <p className="text-sm text-gray-500">{event.attendees ? `${event.attendees}+` : '10+'} Attendees</p>
               </div>
             </div>
           </div>
@@ -62,3 +66,4 @@ const Listing = ({ events }) => {
 };
 
 export default Listing;
+
