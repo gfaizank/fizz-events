@@ -30,7 +30,7 @@ const App = () => {
       type: 'Virtual',
       status: 'Invited',
       attendees: '13',
-    }
+    },
     // Add more events as needed
   ];
 
@@ -43,8 +43,7 @@ const App = () => {
       <Form addEvent={addEvent} />
 
       {/* Event Listing */}
-      <Listing events={mockEvents} />
-      
+      <Listing events={events.concat(mockEvents)} />
     </div>
   );
 };
