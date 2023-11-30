@@ -37,5 +37,8 @@ Open http://localhost:3000 in your browser to view the app.
 
 <img width="1341" alt="Screenshot 2023-11-30 at 6 07 44 PM" src="https://github.com/gfaizank/fizz-events/assets/114975001/ed56a336-a031-44b6-96e4-45b5c8b4974c">
 
+## Deployed Link
+
+https://fizz-events.netlify.app
 
 
