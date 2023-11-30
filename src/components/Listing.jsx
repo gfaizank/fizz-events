@@ -43,7 +43,7 @@ const Listing = ({ events }) => {
             <div className="bg-white p-4 rounded mb-4">
               <p className="text-sm text-gray-500 mb-2"><FontAwesomeIcon icon={faClock} className="mr-1" /> {event.startTime}</p>
               <h3 className="text-2xl font-bold mb-2">{event.eventName}</h3>
-              <img src={event.image? `${event.image}` : `https://via.placeholder.com/50`} alt="Event" className="w-20 h-30 float-right" />
+              <img src={event.image instanceof File ? URL.createObjectURL(event.image) : event.image || 'https://via.placeholder.com/50'} alt="Event" className="w-20 h-30 float-right" />
               <div className="flex items-center mb-2">
                 <FontAwesomeIcon icon={faUser} className="text-sm text-gray-500 mr-1" />
                 <p className="text-sm text-gray-500 mr-3">By FK</p>
