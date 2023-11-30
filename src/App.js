@@ -12,26 +12,26 @@ const App = () => {
 
   const mockEvents = [
     {
-      date: 'Mon, Dec 12',
-      time: '3:00 PM',
-      title: "Builder's Roundtable",
+      startDate: 'Mon, Dec 12',
+      startTime: '3:00 PM',
+      eventName: "Builder's Roundtable",
       image: 'https://via.placeholder.com/50',
       host: 'Octo ML',
-      type: 'Virtual',
+      location: 'Virtual',
       status: 'Invited',
       attendees: '30',
     },
     {
-      date: 'Thu, Nov 30',
-      time: '12:50 PM',
-      title: "Completing assignments",
+      startDate: 'Thu, Nov 30',
+      startTime: '12:50 PM',
+      eventName: "Completing assignments",
       image: 'https://via.placeholder.com/50',
       host: 'FK',
-      type: 'Virtual',
+      location: 'Virtual',
       status: 'Invited',
       attendees: '13',
     },
-    // Add more events as needed
+    
   ];
 
   return (
@@ -49,3 +49,4 @@ const App = () => {
 };
 
 export default App;
+
