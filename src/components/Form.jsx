@@ -286,3 +286,4 @@ const EventForm = ({ addEvent }) => {
 };
 
 export default EventForm;
+
