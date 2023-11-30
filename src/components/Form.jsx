@@ -33,6 +33,7 @@ const EventForm = ({ addEvent }) => {
   const [typeface, setTypeface] = useState('');
 
   const [isApproved, setIsApproved] = useState(false);
+  const [selectedImage, setSelectedImage] = useState(null);
 
   const handleToggleApproval = () => {
     setIsApproved(!isApproved);
@@ -57,6 +58,7 @@ const EventForm = ({ addEvent }) => {
       theme,
       color,
       typeface,
+      image: selectedImage,
     };
     console.log('Collected Form Data:', formData);
 
@@ -75,14 +77,12 @@ const EventForm = ({ addEvent }) => {
     setTheme('');
     setColor('');
     setTypeface('');
+    setSelectedImage("")
   };
 
   const handleImageUpload = (e) => {
-    // Handle the image upload logic here
     const selectedFile = e.target.files[0];
-    console.log('Selected File:', selectedFile);
-
-    // You can send the selectedFile to your server or process it as needed
+    setSelectedImage(selectedFile);
   };
 
   return (
@@ -239,7 +239,7 @@ const EventForm = ({ addEvent }) => {
         <div className="mb-4 relative">
           {/* Replace the URL with your image source */}
           <img
-            src="https://via.placeholder.com/200"
+            src={selectedImage ? URL.createObjectURL(selectedImage) : "https://via.placeholder.com/200"}
             alt="Event Image"
             className="w-full h-80 object-cover mb-2 rounded"
           />
@@ -286,4 +286,5 @@ const EventForm = ({ addEvent }) => {
 };
 
 export default EventForm;
+
 
